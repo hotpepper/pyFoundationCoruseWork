@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdDoZL9UQuvbSTNNISUilgLVo_L9tfR5Y&sensor=false">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+	  
+		var mapCenter=new google.maps.LatLng(40.71542197, -74.01121978);
+		var myCenter=new google.maps.LatLng(40.75795248, -73.97787642);
+		var myCenter2=new google.maps.LatLng(40.736687225, -73.9945481);
+		
+		var marker = new google.maps.Marker({
+			position: myCenter,
+			title:'Click to zoom'
+			});
+		
+		var marker2 = new google.maps.Marker({
+			position: myCenter2,
+			title:'Click to zoom'
+			});
+			
+			
+        var mapOptions = {
+          center: mapCenter,
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.HYBRID
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+		
+		marker.setMap(map);
+		marker2.setMap(map);
+		
+      var infowindow = new google.maps.InfoWindow({
+		content:"100.0% full"
+		});
+	var infowindow2 = new google.maps.InfoWindow({
+		content:"0.0% full"
+		});
+		
+	google.maps.event.addListener(marker, 'click', function() {
+		infowindow.open(map,marker);
+		});
+		
+	google.maps.event.addListener(marker2, 'click', function() {
+		infowindow2.open(map,marker2);
+		});
+	
+}
+	  
+	  
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"/>
+  </body>
+</html>
