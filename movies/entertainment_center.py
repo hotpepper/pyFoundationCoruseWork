@@ -35,6 +35,6 @@ movies  = [toy_story,avatar, in_the_mood_for_love, f_for_fake, office_space]
 
 fresh_tomatoes.open_movies_page(movies)
 
-print media.Movie.VALID_RATINGS
-print media.Movie.__doc__
+#print media.Movie.VALID_RATINGS
+#print media.Movie.__doc__
                            
